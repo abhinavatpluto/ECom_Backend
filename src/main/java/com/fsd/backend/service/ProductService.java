@@ -7,6 +7,7 @@ import com.fsd.backend.entity.Product;
 import com.fsd.backend.repo.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -18,9 +19,17 @@ public class ProductService {
 		return prodRepo.findAll();
 	}
 	
+	public Optional<Product> getById(Integer id){
+		return prodRepo.findById(id);
+	}
+	
 	public void createProd(Product prod) {
 		prodRepo.save(prod);
 		
+	}
+	
+	public void deleteByid(Integer id) {
+		prodRepo.deleteById(id);
 	}
 
 }

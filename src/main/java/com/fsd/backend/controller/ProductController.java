@@ -7,6 +7,7 @@ import com.fsd.backend.entity.Product;
 import com.fsd.backend.service.ProductService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProductController {
@@ -19,9 +20,20 @@ public class ProductController {
 		return proService.listProduct(pro);
 	}
 
+	@GetMapping("/prod/{id}")
+	public Optional<Product> byId(@PathVariable Integer id) {
+		return proService.getById(id);
+	}
+
 	@PostMapping("/prod")
 	public void create(@RequestBody Product product) {
 		proService.createProd(product);
+
+	}
+
+	@DeleteMapping("/prod/{id}")
+	public void delete(@PathVariable Integer id) {
+		proService.deleteByid(id);
 
 	}
 
