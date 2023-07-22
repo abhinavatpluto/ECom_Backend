@@ -37,4 +37,11 @@ public class ProductController {
 
 	}
 
+
+
+	@PutMapping("/prod/{id}")
+	public Product updateProduct(@PathVariable Integer id, @RequestBody Product updatedProduct) {
+		return proService.updateP(id, updatedProduct);
+	}
+
 }
